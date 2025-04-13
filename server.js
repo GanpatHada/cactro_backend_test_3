@@ -1,1 +1,2 @@
-require("./src/app")
+require("dotenv").config();
+const app = require("./src/app");
