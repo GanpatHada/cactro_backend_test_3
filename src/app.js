@@ -122,7 +122,7 @@ app.get("/spotify/pause", ensureValidAccessToken, async (req, res) => {
     res.send("Playback paused successfully!");
   } catch (error) {
     console.error(error.response?.data || error.message);
-    res.status(500).send("Error pausing playback");
+    res.status(500).json({ message: "Premium account required" });
   }
 });
 
@@ -145,7 +145,7 @@ app.get("/spotify/play", ensureValidAccessToken, async (req, res) => {
     res.send(`Playback started for ${trackUri}`);
   } catch (error) {
     console.error(error.response?.data || error.message);
-    res.status(500).send("Error starting playback");
+    res.status(500).json({ message: "Premium account required" });;
   }
 });
 
